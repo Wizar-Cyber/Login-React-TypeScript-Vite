@@ -59,7 +59,6 @@ Para entornos de producción, se recomienda aprovechar las capacidades de TypeSc
 En eslint.config.js configura parserOptions:
 ````
 js
-Copiar código
 export default tseslint.config({
   languageOptions: {
     parserOptions: {
