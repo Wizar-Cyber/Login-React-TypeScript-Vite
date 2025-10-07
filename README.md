@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎨 Login React + TypeScript + Vite
 
-Currently, two official plugins are available:
+¡Bienvenido! Este proyecto es una plantilla elegante y funcional para un **login básico** con React, TypeScript y Vite, lista para que la personalices a tu gusto.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Características destacadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Formulario de inicio de sesión listo para usarse  
+- Configuración con Vite + React + HMR  
+- ESLint + TypeScript preconfigurados  
+- Integración con Tailwind CSS (o tu CSS favorito)  
+- Estructura modular fácil de escalar  
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Cómo empezar
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+```bash
+# Clona el repositorio
+git clone https://github.com/Wizar-Cyber/Login-React-TypeScript-Vite.git
 
-```js
-// eslint.config.js
+# Entra al folder del proyecto
+cd Login-React-TypeScript-Vite
+
+# Instala dependencias
+npm install
+# o yarn install / pnpm install
+
+
+Para desarrollo:
+
+npm run dev
+
+
+Visita en tu navegador: http://localhost:5173
+
+Para producción:
+
+npm run build
+npm run preview
+
+🗂 Estructura recomendada
+public/  
+src/
+ ├── components/     # Componentes reutilizables (Input, Button, LoginForm, etc.)
+ ├── pages/          # Vistas o rutas del proyecto
+ ├── App.tsx         # Componente raíz
+ └── main.tsx        # Punto de entrada
+vite.config.ts       # Configuración de Vite
+tailwind.config.js   # Configuración de estilos (si usas Tailwind)
+eslint.config.js     # Reglas de lint
+tsconfig.*.json      # Configuración de TypeScript
+
+👩‍💻 Mejora de ESLint para producción
+
+Para que ESLint aproveche los tipos:
+
+En eslint.config.js, asegúrate de que parserOptions.project incluya tsconfig.node.json y tsconfig.app.json
+
+Cambia tseslint.configs.recommended por recommendedTypeChecked o strictTypeChecked
+
+Puedes sumar ...tseslint.configs.stylisticTypeChecked para reglas de estilo
+
+Instala y configura eslint-plugin-react con sus reglas recomendadas:
+
 import react from 'eslint-plugin-react'
 
 export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
+  settings: { react: { version: '18.x' } },
+  plugins: { react },
   rules: {
-    // other rules...
-    // Enable its recommended rules
     ...react.configs.recommended.rules,
     ...react.configs['jsx-runtime'].rules,
   },
 })
-```
+
