@@ -1,112 +1,106 @@
-🎨 Login React + TypeScript + Vite
+# 🎨 Login React + TypeScript + Vite
 
-¡Bienvenido! 👋
-Este proyecto es una plantilla de inicio optimizada para crear un login básico con React y TypeScript. Está configurado sobre Vite para ofrecer una experiencia de desarrollo ultrarrápida con HMR (Hot Module Replacement).
+¡Bienvenido!  
+Este proyecto es una plantilla elegante y funcional para un **login básico** con React, TypeScript y Vite.  
+Está lista para que la personalices y escales según tus necesidades.
 
-✨ Características destacadas
-Formulario de Login: Listo para usar y personalizar.
+---
 
-Entorno de Desarrollo Rápido: Configurado con Vite y React. Puedes elegir entre:
+## ✨ Características destacadas
 
-@vitejs/plugin-react (usa Babel).
+- 🔑 Formulario de inicio de sesión listo para usarse  
+- ⚡ Configuración mínima y rápida con **Vite + React + HMR**  
+- 📏 **ESLint + TypeScript** preconfigurados  
+- 🎨 Integración con **Tailwind CSS** (o el CSS que prefieras)  
+- 🧩 Estructura modular fácil de escalar  
+- 🚀 Compatibilidad con **@vitejs/plugin-react** (Babel) y **@vitejs/plugin-react-swc** (SWC) para Fast Refresh  
 
-@vitejs/plugin-react-swc (usa SWC para una compilación aún más rápida).
+---
 
-TypeScript y ESLint: Preconfigurados para un código limpio y seguro.
+## 🚀 Cómo empezar
 
-Tailwind CSS: Integrado para un estilizado moderno y eficiente.
+### Clonar e instalar dependencias
 
-Estructura Modular: Organizado de forma intuitiva para escalar tu proyecto fácilmente.
-
-🚀 Cómo empezar
-1. Clonar e Instalar Dependencias
-```Bash
-
+```bash
 git clone https://github.com/Wizar-Cyber/Login-React-TypeScript-Vite.git
 cd Login-React-TypeScript-Vite
 npm install
 # o yarn install / pnpm install
 ````
-2. Modo Desarrollo
-Ejecuta el siguiente comando para iniciar el servidor de desarrollo:
-
-```
+Modo desarrollo
+````
 npm run dev
-```
-Luego, abre tu navegador en http://localhost:5173.
+````
+Abre en tu navegador: http://localhost:5173
 
-3. Build de Producción
-Para compilar y previsualizar la versión final de tu aplicación:
-```
+Producción
+````
 npm run build
 npm run preview
-```
-🗂 Estructura de Archivos Recomendada
-```
+````
+🗂 Estructura recomendada
+
+````
 public/
 src/
- ├── components/    # Componentes reutilizables (Input, Button, etc.)
- ├── pages/         # Vistas o rutas del proyecto
- ├── App.tsx        # Componente raíz
- └── main.tsx       # Punto de entrada de la aplicación
-vite.config.ts      # Configuración de Vite
-tailwind.config.js  # Configuración de estilos de Tailwind
-eslint.config.js    # Reglas y configuración de ESLint
-tsconfig.*.json     # Configuración de TypeScript
-```
-👩‍💻 Ampliando la Configuración de ESLint
-Para una aplicación de producción, se recomienda habilitar reglas de ESLint que reconozcan tipos para un análisis de código más profundo. Sigue estos pasos en tu archivo eslint.config.js:
-
-1. Habilitar el Reconocimiento de Tipos
-Configura la propiedad parserOptions para que ESLint sepa dónde encontrar la configuración de tu proyecto TypeScript.
+ ├── components/      # Componentes reutilizables (Input, Button, LoginForm, etc.)
+ ├── pages/           # Vistas o rutas del proyecto
+ ├── App.tsx          # Componente raíz
+ └── main.tsx         # Punto de entrada
+vite.config.ts        # Configuración de Vite
+tailwind.config.js    # Configuración de estilos (si usas Tailwind)
+eslint.config.js      # Reglas de lint
+tsconfig.*.json       # Configuración de TypeScript
 ````
-#JavaScript
+👩‍💻 Configuración avanzada de ESLint
+Para entornos de producción, se recomienda aprovechar las capacidades de TypeScript + ESLint.
 
-// eslint.config.js
-import tseslint from 'typescript-eslint';
-
+1. Parser Options
+En eslint.config.js configura parserOptions:
+````
+js
+Copiar código
 export default tseslint.config({
   languageOptions: {
     parserOptions: {
-      project: ['./tsconfig.json', './tsconfig.node.json'],
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
       tsconfigRootDir: import.meta.dirname,
     },
   },
-});
+})
 ````
-2. Activar Reglas Basadas en Tipos
-Reemplaza la configuración base tseslint.configs.recommended por una de las siguientes opciones:
+2. Reglas con tipos
+````
+Reemplaza tseslint.configs.recommended por:
 
-tseslint.configs.recommendedTypeChecked: Set de reglas recomendadas basadas en tipos.
+tseslint.configs.recommendedTypeChecked o
 
-tseslint.configs.strictTypeChecked: Reglas aún más estrictas.
+tseslint.configs.strictTypeChecked
 
-Opcional: Añade ...tseslint.configs.stylisticTypeChecked para reglas de estilo.
+Opcional: añade ...tseslint.configs.stylisticTypeChecked para incluir reglas de estilo.
+````
+3. eslint-plugin-react
+Instala y configura el plugin oficial de React:
+````
+npm install eslint-plugin-react --save-dev
+````
+En eslint.config.js:
+````
+js
+import react from 'eslint-plugin-react'
 
-3. Integrar ESLint con React
-Instala eslint-plugin-react y actualiza tu configuración para incluir sus reglas recomendadas, asegurándote de especificar tu versión de React.
-```
-#JavaScript
+export default tseslint.config({
+  settings: { react: { version: '18.3' } },
+  plugins: { react },
+  rules: {
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+````
+📌 Notas finales
+Puedes cambiar Tailwind por tu framework de estilos favorito.
 
-// eslint.config.js
-import react from 'eslint-plugin-react';
-import tseslint from 'typescript-eslint';
+Si necesitas un entorno más complejo, amplía la configuración con Redux, React Query, Zustand, etc.
 
-export default tseslint.config(
-  // ...otras configuraciones que ya tengas
-  {
-    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx}'],
-    settings: {
-      react: { version: '18.2' } // Especifica tu versión de React
-    },
-    plugins: {
-      react,
-    },
-    rules: {
-      // Activa las reglas recomendadas del plugin de React
-      ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
-      // Aquí puedes añadir o sobreescribir otras reglas
-    },
-  }
-);
+Este boilerplate busca ser minimalista pero listo para producción.
