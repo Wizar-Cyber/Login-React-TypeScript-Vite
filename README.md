@@ -20,28 +20,31 @@
 ```bash
 # Clona el repositorio
 git clone https://github.com/Wizar-Cyber/Login-React-TypeScript-Vite.git
-
+```
 # Entra al folder del proyecto
+```bash
 cd Login-React-TypeScript-Vite
-
+```
 # Instala dependencias
+```bash
 npm install
 # o yarn install / pnpm install
-
+````
 
 Para desarrollo:
-
+```bash
 npm run dev
-
+```
 
 Visita en tu navegador: http://localhost:5173
 
 Para producción:
-
+```bash
 npm run build
 npm run preview
-
+````
 🗂 Estructura recomendada
+```bash
 public/  
 src/
  ├── components/     # Componentes reutilizables (Input, Button, LoginForm, etc.)
@@ -52,7 +55,7 @@ vite.config.ts       # Configuración de Vite
 tailwind.config.js   # Configuración de estilos (si usas Tailwind)
 eslint.config.js     # Reglas de lint
 tsconfig.*.json      # Configuración de TypeScript
-
+````
 👩‍💻 Mejora de ESLint para producción
 
 Para que ESLint aproveche los tipos:
@@ -64,7 +67,7 @@ Cambia tseslint.configs.recommended por recommendedTypeChecked o strictTypeCheck
 Puedes sumar ...tseslint.configs.stylisticTypeChecked para reglas de estilo
 
 Instala y configura eslint-plugin-react con sus reglas recomendadas:
-
+```bash
 import react from 'eslint-plugin-react'
 
 export default tseslint.config({
