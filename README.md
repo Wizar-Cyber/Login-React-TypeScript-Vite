@@ -1,4 +1,5 @@
 🎨 Login React + TypeScript + Vite
+
 ¡Bienvenido! 👋
 Este proyecto es una plantilla de inicio optimizada para crear un login básico con React y TypeScript. Está configurado sobre Vite para ofrecer una experiencia de desarrollo ultrarrápida con HMR (Hot Module Replacement).
 
